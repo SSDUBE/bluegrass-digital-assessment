@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import Modal from 'react-native-modal';
 import { theme } from '../theme';
 import Button from './Button';
@@ -26,6 +26,19 @@ const ContactModal: React.FC<ContactModalProps> = ({
     }
   }, [onClose]);
 
+  const handlePhonePress = useCallback(() => {
+    const phoneNumberFormatted = phoneNumber.replace(/[^0-9]/g, '');
+    Linking.canOpenURL(`tel:${phoneNumberFormatted}`)
+      .then(supported => {
+        if (supported) {
+          return Linking.openURL(`tel:${phoneNumberFormatted}`);
+        } else {
+          console.log('Phone calls not supported on this device');
+        }
+      })
+      .catch(err => console.error('An error occurred', err));
+  }, [phoneNumber]);
+
   return (
     <Modal
       isVisible={isVisible}
@@ -40,7 +53,10 @@ const ContactModal: React.FC<ContactModalProps> = ({
       <View style={styles.container}>
         <Text style={styles.title}>Contact for results</Text>
         <Text style={styles.message}>
-          {doctorName} has requested that you contact him/her for your results on {phoneNumber}
+          {doctorName} has requested that you contact him/her for your results on{' '}
+          <Text style={styles.phoneNumber} onPress={handlePhonePress}>
+            {phoneNumber}
+          </Text>
         </Text>
         <Button title="OK" onPress={handleClose} variant="primary" fullWidth size="medium" />
       </View>
@@ -73,9 +89,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#333',
     fontFamily: theme.typography.fontFamily.regular,
-    marginBottom: 24,
     textAlign: 'center',
     lineHeight: 24,
+    marginBottom: 24,
+  },
+  phoneNumber: {
+    fontSize: 18,
+    color: theme.colors.primary,
+    fontFamily: theme.typography.fontFamily.bold,
+    textDecorationLine: 'underline',
+    textAlign: 'center',
   },
 });
 
