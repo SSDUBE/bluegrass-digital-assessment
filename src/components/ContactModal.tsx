@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   phoneNumber: {
-    fontSize: 18,
+    fontSize: 16,
     color: theme.colors.primary,
     fontFamily: theme.typography.fontFamily.bold,
     textDecorationLine: 'underline',
