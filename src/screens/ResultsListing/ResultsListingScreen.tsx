@@ -22,8 +22,9 @@ import { getStatusStyle } from '../../utils/statusUtils';
 const ResultsListingScreen: React.FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
   const { results, userProfile, loading, error, loadResults, loadUserProfile } = useResults();
-  const { isVisible, closeModal } = useContactModal();
+  const { isVisible, closeModal, showModal } = useContactModal();
   const [refreshing, setRefreshing] = useState(false);
+  const [selectedDoctor, setSelectedDoctor] = useState('Dr Barnard');
 
   const handleRefresh = () => {
     setRefreshing(true);
@@ -35,6 +36,11 @@ const ResultsListingScreen: React.FC = () => {
 
   const handleCloseModal = () => {
     closeModal();
+  };
+
+  const handleDoctorPress = (doctorName: string) => {
+    setSelectedDoctor(doctorName);
+    showModal();
   };
 
   const navigateToDetails = (requestId: string) => {
@@ -81,7 +87,9 @@ const ResultsListingScreen: React.FC = () => {
           </View>
           <View style={styles.infoColumn}>
             <Text style={styles.infoLabel}>Doctor</Text>
-            <Text style={styles.infoValue}>{item.doctorName}</Text>
+            <TouchableOpacity onPress={() => handleDoctorPress(item.doctorName)}>
+              <Text style={styles.infoValue}>{item.doctorName}</Text>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -168,7 +176,7 @@ const ResultsListingScreen: React.FC = () => {
       <ContactModal
         isVisible={isVisible}
         onClose={handleCloseModal}
-        doctorName="Dr Barnard"
+        doctorName={selectedDoctor}
         phoneNumber="0217943674"
       />
     </View>
