@@ -1,97 +1,112 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Bluegrass Digital Medical Results App
 
-# Getting Started
+A React Native mobile application for viewing medical test results. This app allows users to view their medical test results, including detailed specimen information and test statuses.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+- View a list of test results with status indicators
+- Detailed view of individual test results
+- Color-coded status badges (Completed, Pending, Processing)
+- Personalized welcome header
+- Contact modal for reaching out to medical professionals
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Screenshots
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+*Screenshots will be added here*
 
-```sh
-# Using npm
-npm start
+## Technologies Used
 
-# OR using Yarn
-yarn start
+- React Native
+- TypeScript
+- Redux for state management
+- React Navigation for routing
+- React Native Vector Icons for UI elements
+- Custom Mulish font family for consistent typography
+
+## Prerequisites
+
+- Node.js (v18 or higher)
+- Yarn package manager
+- For iOS: macOS with Xcode installed
+- For Android: Android Studio with SDK installed
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SSDUBE/bluegrass-digital-assessment.git
+   cd bluegrass-digital-assessment
+   ```
+
+2. Install dependencies:
+   ```bash
+   yarn install
+   ```
+
+3. Install iOS dependencies (macOS only):
+   ```bash
+   cd ios && pod install && cd ..
+   ```
+
+## Running the App
+
+### Development Mode
+
+1. Start the Metro bundler:
+   ```bash
+   yarn start
+   ```
+
+2. Run on iOS simulator (macOS only):
+   ```bash
+   yarn ios
+   ```
+
+3. Run on Android emulator or device:
+   ```bash
+   yarn android
+   ```
+
+## Project Structure
+
+```
+/src
+  /components        # Reusable UI components
+  /hooks             # Custom React hooks
+  /navigation        # Navigation configuration
+  /screens           # Screen components
+  /services          # API and data services
+  /store             # Redux store and slices
+  /theme             # Theme configuration
+  /types             # TypeScript type definitions
+  /utils             # Utility functions
+/assets
+  /fonts             # Custom font files (Mulish family)
 ```
 
-## Step 2: Build and run your app
+## Code Quality
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+This project uses ESLint and Prettier for code quality and formatting:
 
-### Android
+```bash
+# Run linting
+yarn lint
 
-```sh
-# Using npm
-npm run android
+# Fix linting issues automatically
+yarn lint:fix
 
-# OR using Yarn
-yarn android
+# Format code with Prettier
+yarn format
 ```
 
-### iOS
+## Custom Fonts
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+The app uses the Mulish font family for consistent typography across platforms. The font files are included in the `/assets/fonts` directory and are properly configured for both iOS and Android.
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+## Vector Icons
 
-```sh
-bundle install
-```
+The app uses react-native-vector-icons, specifically the FontAwesome icon set. Icons are properly configured for both iOS and Android platforms.
 
-Then, and every time you update your native dependencies, run:
+## License
 
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+[MIT License](LICENSE)
