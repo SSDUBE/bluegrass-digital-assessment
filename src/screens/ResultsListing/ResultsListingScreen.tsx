@@ -88,7 +88,7 @@ const ResultsListingScreen: React.FC = () => {
           <View style={styles.infoColumn}>
             <Text style={styles.infoLabel}>Doctor</Text>
             <TouchableOpacity onPress={() => handleDoctorPress(item.doctorName)}>
-              <Text style={styles.infoValue}>{item.doctorName}</Text>
+              <Text style={styles.infoValue} numberOfLines={1} ellipsizeMode="tail">{item.doctorName}</Text>
             </TouchableOpacity>
           </View>
         </View>

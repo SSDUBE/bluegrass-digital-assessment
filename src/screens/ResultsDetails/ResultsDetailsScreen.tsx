@@ -152,9 +152,20 @@ const ResultsDetailsScreen: React.FC = () => {
         {selectedResult.specimens.map((specimen, specimenIndex) => (
           <View key={specimenIndex} style={styles.specimenContainer}>
             <View style={styles.infoGrid}>
-              {textLabel('Date', selectedResult.date)}
-              {textLabel('Time', selectedResult.time)}
-              {textLabel('Doctor', selectedResult.doctorName)}
+              <View style={styles.infoRowHorizontal}>
+                <View style={styles.infoItem}>
+                  <Text style={styles.infoLabel}>Date</Text>
+                  <Text style={styles.infoValue}>{selectedResult.date}</Text>
+                </View>
+                <View style={styles.infoItem}>
+                  <Text style={styles.infoLabel}>Time</Text>
+                  <Text style={styles.infoValue}>{selectedResult.time}</Text>
+                </View>
+                <View style={styles.infoItem}>
+                  <Text style={styles.infoLabel}>Doctor</Text>
+                  <Text style={styles.infoValue} numberOfLines={1} ellipsizeMode="tail">{selectedResult.doctorName}</Text>
+                </View>
+              </View>
             </View>
 
             <View style={styles.specimenHeader}>
@@ -219,6 +230,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: theme.spacing.xs / 2,
+  },
+  infoRowHorizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  infoItem: {
+    flex: 1,
+    paddingHorizontal: theme.spacing.xs,
   },
   infoLabel: {
     fontSize: 14,
