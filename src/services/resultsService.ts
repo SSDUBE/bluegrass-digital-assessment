@@ -2,8 +2,6 @@ import { ResultItem } from '../types';
 
 const SPINNER_TIMEOUT = 1500;
 
-// Reusable mock data
-// Base mock results that will be used to generate more records
 const baseMockResults: ResultItem[] = [
   {
     id: '156124798',
