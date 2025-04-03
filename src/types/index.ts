@@ -57,6 +57,10 @@ export interface Theme {
     error: string;
     warning: string;
     info: string;
+    // Test result colors
+    testValueNormal: string;
+    testValueHigh: string;
+    testValueDefault: string;
   };
   spacing: {
     xs: number;

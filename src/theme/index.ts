@@ -13,6 +13,10 @@ export const theme: Theme = {
     error: '#ef4444',
     warning: '#f59e0b',
     info: '#3b82f6',
+    //Test value colors
+    testValueNormal: '#066D37',
+    testValueHigh: '#BA1B1B',
+    testValueDefault: '#333333',
   },
   spacing: {
     xs: 5,

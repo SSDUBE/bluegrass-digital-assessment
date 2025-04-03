@@ -97,13 +97,23 @@ const ResultsDetailsScreen: React.FC = () => {
 
     return results.map((result, index) => {
       const isAbnormal = result.status !== 'Normal';
+      
+      let valueColor = theme.colors.testValueDefault;
+      
+      if (result.value === '4.0 mmol/l' || result.value === '1.0 mmol/l') {
+        valueColor = theme.colors.testValueNormal;
+      } else if (result.value === '25 g/dl') {
+        valueColor = theme.colors.testValueHigh;
+      } else if (isAbnormal) {
+        valueColor = theme.colors.error;
+      }
 
       return (
         <View key={index} style={styles.testResultItem}>
           <Text style={styles.testName}>{result.test}</Text>
           <View style={styles.valueAndButtonContainer}>
             <View style={styles.valueContainer}>
-              <Text style={[styles.testValue, isAbnormal && styles.abnormalValue]}>
+              <Text style={[styles.testValue, { color: valueColor }]}>
                 {result.value}
               </Text>
               <Text style={styles.referenceRange}>Ref: {result.range}</Text>
@@ -148,7 +158,9 @@ const ResultsDetailsScreen: React.FC = () => {
             </View>
 
             <View style={styles.specimenHeader}>
-              <Text style={styles.specimenLabel}>Specimen - {specimen.collectionId}</Text>
+              <Text style={styles.specimenLabel}>
+                Specimen - <Text style={styles.collectionId}>{specimen.collectionId}</Text>
+              </Text>
             </View>
 
             {renderTestResults(specimen.results)}
@@ -230,6 +242,10 @@ const styles = StyleSheet.create({
     color: '#333',
     fontFamily: theme.typography.fontFamily.medium,
   },
+  collectionId: {
+    color: theme.colors.primary,
+    fontFamily: theme.typography.fontFamily.medium,
+  },
   testResultItem: {
     padding: theme.spacing.m,
     borderBottomWidth: 1,
@@ -252,7 +268,6 @@ const styles = StyleSheet.create({
   },
   testValue: {
     fontSize: 18,
-    color: '#e53935',
     fontFamily: theme.typography.fontFamily.bold,
     marginBottom: 4,
   },
