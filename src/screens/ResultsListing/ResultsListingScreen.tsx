@@ -258,8 +258,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: theme.spacing.m,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
   },
   requestIdContainer: {
     flexDirection: 'row',
@@ -280,10 +278,7 @@ const styles = StyleSheet.create({
     color: theme.colors.primary,
     fontSize: 16,
     fontWeight: '600',
-    textDecorationLine: 'underline',
     fontFamily: theme.typography.fontFamily.medium,
-    padding: 8,
-    marginLeft: 2,
   },
   statusBadge: {
     paddingHorizontal: theme.spacing.s,
