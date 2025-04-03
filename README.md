@@ -107,6 +107,21 @@ The app uses the Mulish font family for consistent typography across platforms. 
 
 The app uses react-native-vector-icons, specifically the FontAwesome icon set. Icons are properly configured for both iOS and Android platforms.
 
+## Assessment Information
+
+### Time Spent
+- The assessment took approximately 12 hours to complete.
+
+### Incomplete Functionality / Known Issues
+- Users should be able to navigate using the Back arrow or swiping Left/Right
+- The code could be improved in terms of code quality building more resubale components
+- Animations only done to buttons the accordion could be improved as it is basic
+
+### Most Challenging Parts
+- Creating animations
+- Creating the expandable accordion for specimen details required careful state management and styling to ensure it worked properly and looked good.
+- Finding the right balance between custom components and reusable ones 
+
 ## License
 
 [MIT License](LICENSE)
