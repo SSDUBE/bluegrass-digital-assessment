@@ -1,6 +1,6 @@
 import { ResultItem } from '../types';
 
-const SPINNER_TIMEOUT = 4000;
+const SPINNER_TIMEOUT = 1500;
 
 // Reusable mock data
 const mockResults: ResultItem[] = [
@@ -119,7 +119,7 @@ const mockResults: ResultItem[] = [
 export const resultsService = {
   getResults: async (): Promise<ResultItem[]> => {
     await new Promise<void>(resolve => {
-      const timer = setTimeout(resolve, Math.min(400, SPINNER_TIMEOUT));
+      const timer = setTimeout(resolve, Math.min(1500, SPINNER_TIMEOUT));
       return () => clearTimeout(timer);
     });
 
@@ -130,9 +130,8 @@ export const resultsService = {
    * Get a specific result by ID
    */
   getResultById: async (id: string): Promise<ResultItem | null> => {
-    // Reduce the delay to improve responsiveness
     await new Promise<void>(resolve => {
-      const timer = setTimeout(resolve, 200); // Reduced delay to 200ms for faster response
+      const timer = setTimeout(resolve, Math.min(1500, SPINNER_TIMEOUT));
       return () => clearTimeout(timer);
     });
 
@@ -147,7 +146,7 @@ export const resultsService = {
    */
   getUserProfile: async (): Promise<{ name: string; patientId: string }> => {
     await new Promise<void>(resolve => {
-      const timer = setTimeout(resolve, Math.min(300, SPINNER_TIMEOUT));
+      const timer = setTimeout(resolve, Math.min(1500, SPINNER_TIMEOUT));
       return () => clearTimeout(timer);
     });
 
